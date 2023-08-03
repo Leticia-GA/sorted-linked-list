@@ -8,5 +8,3 @@ $linkedList->append(1);
 $linkedList->append(2);
 
 echo $linkedList;
-
-

@@ -11,7 +11,7 @@ class LinkedList
         $this->head = null;
     }
 
-    public function append(int $data)
+    public function append(int $data): void
     {
         if ($this->head == null) {
             $this->head = new Node($data);
@@ -21,14 +21,33 @@ class LinkedList
 
         $current = $this->head;
 
-        while ($current->next != null) {
-            $current = $current->next;
+        while ($current->getNext() != null) {
+            $current = $current->getNext();
         }
 
-        $current->next = new Node($data);
+        $current->setNext(new Node($data));
     }
 
-    public function __toString()
+    public function get(int $index): ?int
+    {
+        $current = $this->head;
+
+        for ($i = 0; $i < $index; $i++) {
+            if (!$current) {
+                return null;
+            }
+
+            $current = $current->getNext();
+        }
+
+        if (!$current) {
+            return null;
+        }
+
+        return $current->getData();
+    }
+
+    public function __toString(): string
     {
         $current = $this->head;
         $data = '';
@@ -36,11 +55,11 @@ class LinkedList
         while ($current != null) {
             $data .= $current->getData();
 
-            if ($current->next != null) {
+            if ($current->getNext() != null) {
                 $data .= ', ';
             }
 
-            $current = $current->next;
+            $current = $current->getNext();
         }
 
         return $data;

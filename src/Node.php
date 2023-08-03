@@ -2,7 +2,7 @@
 
 class Node
 {
-    public ? Node $next;
+    private ? Node $next;
 
     private int $data;
 
@@ -10,6 +10,16 @@ class Node
     {
         $this->data = $data;
         $this->next = null;
+    }
+
+    public function getNext(): ?Node
+    {
+        return $this->next;
+    }
+
+    public function setNext(?Node $next): void
+    {
+        $this->next = $next;
     }
 
     public function getData(): int
