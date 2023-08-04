@@ -1,6 +1,6 @@
 <?php
 
-include '../src/LinkedList.php';
+include(dirname(__DIR__).'/src/LinkedList.php');
 use PHPUnit\Framework\TestCase;
 
 final class LinkedListTest extends TestCase
