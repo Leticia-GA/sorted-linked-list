@@ -1,6 +1,6 @@
 <?php
 
-include 'src/LinkedList.php';
+include '../src/LinkedList.php';
 use PHPUnit\Framework\TestCase;
 
 final class LinkedListTest extends TestCase
@@ -28,5 +28,26 @@ final class LinkedListTest extends TestCase
         $this->assertEquals(3, $linkedList->get(0));
         $this->assertEquals(9, $linkedList->get(2));
         $this->assertNull($linkedList->get(9));
+    }
+
+    public function testLengthMethod()
+    {
+        $linkedList = new LinkedList();
+
+        $linkedList->append(3);
+
+        $this->assertEquals(1, $linkedList->length());
+    }
+
+    public function testContainsMethod()
+    {
+        $linkedList = new LinkedList();
+
+        $linkedList->append(3);
+        $linkedList->append(5);
+        $linkedList->append(7);
+
+        $this->assertTrue($linkedList->contains(5));
+        $this->assertFalse($linkedList->contains(2));
     }
 }

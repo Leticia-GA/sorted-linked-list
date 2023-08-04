@@ -1,0 +1,1 @@
+{"version":1,"defects":{"LinkedListTest::testGetMethod":8,"LinkedListTest::testToStringMethod":8,"LinkedListTest::testLengthMethod":8,"LinkedListTest::testContainsMethod":8},"times":{"LinkedListTest::testGetMethod":0,"LinkedListTest::testToStringMethod":0.016,"LinkedListTest::testLengthMethod":0,"LinkedListTest::testContainsMethod":0}}

@@ -6,9 +6,12 @@ class LinkedList
 {
     private ?Node $head;
 
+    private int $length;
+
     public function __construct()
     {
         $this->head = null;
+        $this->length = 1;
     }
 
     public function append(int $data): void
@@ -26,6 +29,7 @@ class LinkedList
         }
 
         $current->setNext(new Node($data));
+        $this->setLength($this->getLength() + 1);
     }
 
     public function get(int $index): ?int
@@ -45,6 +49,38 @@ class LinkedList
         }
 
         return $current->getData();
+    }
+
+    public function getLength(): int
+    {
+        return $this->length;
+    }
+
+    public function setLength(int $length): void
+    {
+        $this->length = $length;
+    }
+
+    public function length(): int
+    {
+        return $this->getLength();
+    }
+
+    public function contains(int $value): bool
+    {
+        if ($this->head == null) {
+            return false;
+        }
+
+        $current = $this->head;
+
+        while ($current->getNext() != null) {
+            if ($current->getData() === $value) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function __toString(): string
